@@ -73,7 +73,7 @@ app.use(function(err, req, res, next) {
 var myJSONObject2 = { "id":2,"type":"temp","timer":1205,"value":3};
 
 /*request({
-    url: "http://localhost:3000/api/sensors/",
+    //url: "http://localhost:3000/api/sensors/",
     method: "POST",
     json: true,   // <--Very important!!!
     body: myJSONObject2
