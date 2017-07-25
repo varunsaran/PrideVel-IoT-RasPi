@@ -62,7 +62,7 @@ function createSensor(req, res, next){
         });
 };
 function updateSensor(req, res, next) {
-  db.none('update sensors set type=$1, timer=$2, =$3 where id=$5',
+  db.none('update sensors set type=$1, timer=$2, value=$3 where id=$4',
     [req.body.type, parseInt(req.body.timer), parseInt(req.body.value),
        parseInt(req.params.id)])
     .then(function () {
