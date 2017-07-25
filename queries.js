@@ -47,7 +47,10 @@ function getSingleSensor(req, res, next) {
 };
 function createSensor(req, res, next){
   req.body.age = parseInt(req.body.age);
-  db.none('insert into sensors(type, timer, value)' +
+
+  //db.none('insert into sensors(type, timer, value)' +
+  //db.none changed to db.one to see if new ID won't be created.
+  db.one('insert into sensors(type, timer, value)' +
       'values(${type}, ${timer}, ${value})',
     req.body)
       .then(function () {

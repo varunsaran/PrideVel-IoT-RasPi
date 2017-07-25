@@ -83,7 +83,8 @@ request({
   console.log(response + ": response!!!!!");
   console.log(body + ": body!!!!!");
 });
-
+/*
+delete all IDs
 for(var i = 1; i<110; i++){
   request({
       url: "https://stark-sierra-48385.herokuapp.com/api/sensors/" + i,
@@ -93,3 +94,4 @@ for(var i = 1; i<110; i++){
     console.log(error);
   });
 }
+*/
