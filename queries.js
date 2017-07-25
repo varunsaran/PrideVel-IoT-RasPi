@@ -7,7 +7,10 @@ var options = {
 
 var pgp = require('pg-promise')(options);
 var connectionString = process.env.DATABASE_URL;
-// change connection string
+//next line has connection string with format user:password@host:port....something like that
+//var connectionString = 'postgres://xieghwzbgmzuzt:78e76406f7c32181c720c82dff7062bedd917fe4a648ff6a488fe425a3830cc2@ec2-54-163-254-143.compute-1.amazonaws.com:5432/d3d5fkqr7qabkg'
+
+
 
 var db = pgp(connectionString);
 
