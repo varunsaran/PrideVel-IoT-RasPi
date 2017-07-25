@@ -6,7 +6,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://process.env.DATABASE_URL';
+var connectionString = process.env.DATABASE_URL;
 // change connection string
 
 var db = pgp(connectionString);
