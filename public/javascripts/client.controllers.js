@@ -29,21 +29,17 @@ function ($scope, $rootScope, $http, $interval) {
 //data instead of data
 //value instead of motioDetected
 
-var parsedJSON = JSON.parse(response.data.data);
-for (var i=0;i<1;i++){
-  console.log(parsedJSON[i]);
-  }
-  console.log("JSON timer: " + parsedJSON.timer)
 
-      //console.log("response.data.data: " + response.data.data);
-      //console.log("response.data.data.timer: " + response.data.data.timer);
+
+      console.log("response.data.data: " + response.data.data);
+      console.log("response.data.data.timer: " + response.data.data.timer);
 
       if (response.data.data !== undefined) {
         // switch on when motion is detected
         if(Object.keys(response.data.data).length > 0){
           payload = JSON.parse(response.data.data);
-            $('#switch').prop('checked', payload.timer);
-            //switch made to check when timer = 1, not value, just to check if code works. need to change back
+            $('#switch').prop('checked', payload.value);
+
 
             //console.log("Payload motion: " + payload.value);
             //console.log("Payload timer: " + payload.timer);
@@ -127,7 +123,7 @@ for (var i=0;i<1;i++){
 
 				if('value' in payload){
 					console.log("payload.value equals " + payload.value);
-					var date = new Date (payload.timer);
+					var date = new Date (payload.value);
 					dps.push({
 
 						x: date,
