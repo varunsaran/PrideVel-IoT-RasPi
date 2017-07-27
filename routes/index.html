@@ -13,7 +13,7 @@
     <!--removed angular.min.js from previous script src-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-   <!-- <script type="text/javascript" src="public/js/client.controllers.js"></script>-->
+   <!-- <script type="text/javascript" src="public/javascripts/client.controllers.js"></script>-->
 
         <!--  Scripts-->
 
@@ -24,9 +24,9 @@
     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/client.controllers.js"></script>
+    <script src="../public/javascripts/client.controllers.js"></script>
 
-<!--	<link href="/public/js/client.controllers.js" type="text/javascript" > -->
+<!--	<link href="/public/javascripts/client.controllers.js" type="text/javascript" > -->
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -42,17 +42,13 @@
 
    <table>
       <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">
-
-        </td>
         <td>
           <h1 id="message">Hello World!</h1>
           <p class='description'></p> Thanks for creating a <span class = "blue">NodeJS Starter Application</span>.
         </td>
       </tr>
     </table>
-    
+
 
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
@@ -64,4 +60,18 @@
 </body>
 
     </body>
+
+    <section>
+<div ng-controller="HomeController" >
+    <div class="switch">
+        <label>
+            Light
+        <input id="switch" type="checkbox">
+        <!--<input id="switch" type="text">-->
+        <span class="lever"></span>
+            Dark
+        </label>
+    </div>
+</div>
+</section>
 </html>
