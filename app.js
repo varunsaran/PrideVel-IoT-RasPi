@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static(__dirname + '/routes'));
+app.use(express.static(__dirname + '/routes'));
 //previous line added to make home page
 app.use('/', index);
 app.use('/users', users);
