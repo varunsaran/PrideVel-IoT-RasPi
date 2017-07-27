@@ -32,7 +32,9 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data).length > 0){
           payload = JSON.parse(response.data.data);
-            $('#switch').prop('checked', payload.value);
+            $('#switch').prop('checked', payload.timer);
+            //switch made to check when timer = 1, not value, just to check if code works. need to change back
+
             //console.log("Payload motion: " + payload.value);
             //console.log("Payload timer: " + payload.timer);
 
