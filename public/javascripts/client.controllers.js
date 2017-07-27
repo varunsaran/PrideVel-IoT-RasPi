@@ -5,6 +5,9 @@
 
 /*globals angular */
 /*eslint-env jquery */
+
+var request = require('request');
+
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 
 
