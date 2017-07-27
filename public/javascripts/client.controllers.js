@@ -28,8 +28,15 @@ function ($scope, $rootScope, $http, $interval) {
 // response.data.data.value
 //data instead of data
 //value instead of motioDetected
-      console.log("response.data.data: " + response.data.data);
-      console.log("response.data.data.timer: " + response.data.data.timer);
+
+var parsedJSON = JSON.parse(response.data.data);
+for (var i=0;i<1;i++){
+  console.log(parsedJSON[i]);
+  }
+  console.log("JSON timer: " + parsedJSON.timer)
+
+      //console.log("response.data.data: " + response.data.data);
+      //console.log("response.data.data.timer: " + response.data.data.timer);
 
       if (response.data.data !== undefined) {
         // switch on when motion is detected
@@ -86,7 +93,8 @@ function ($scope, $rootScope, $http, $interval) {
   });
 }
 ]);
-window.onload = function () {
+
+/*window.onload = function () {
 
 		var dps = []; // dataPoints
 
@@ -148,3 +156,4 @@ window.onload = function () {
 		setInterval(function(){updateChart();}, updateInterval);
 
 	};
+  */

@@ -72,7 +72,7 @@ app.use(function(err, req, res, next) {
 
 
 var myJSONObject2 = {"type":"ldr","timer": 1 ,"value":1};
-
+/*
 request({
     url: "https://stark-sierra-48385.herokuapp.com/api/sensors",
     method: "POST",
@@ -84,6 +84,7 @@ request({
   console.log(response + ": response!!!!!");
   console.log(body + ": body!!!!!");
 });
+*/
 /*
 delete all IDs
 for(var i = 1; i<110; i++){
