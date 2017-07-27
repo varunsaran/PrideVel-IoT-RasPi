@@ -32,7 +32,7 @@ function ($scope, $rootScope, $http, $interval) {
 
 
       console.log("response.data.data: " + response.data.data);
-      console.log("response.data.data.timer: " + response.data.data.timer);
+      console.log("response.data.data.value: " + response.data.data.timer);
 
       if (response.data.data !== undefined) {
         // switch on when motion is detected
