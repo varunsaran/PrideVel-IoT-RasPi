@@ -12,7 +12,19 @@ console.log("client.controllers.js Starting now ... ");
 
 var payload = {};
 
+var r = request({
+    url: "https://stark-sierra-48385.herokuapp.com/api/sensors/ldr",
+    method: "GET",
 
+}
+, function (error, response, body){
+  console.log(error + ": ERROR!!!!!");
+});
+console.log("data: " + r.body.data);
+console.log("value: " + r.body.data.value);
+
+
+/*
 var homeControllers = angular.module('HomeControllers', []);
 
 
@@ -90,6 +102,13 @@ function ($scope, $rootScope, $http, $interval) {
   });
 }
 ]);
+
+
+
+
+*/
+
+
 
 /*window.onload = function () {
 
