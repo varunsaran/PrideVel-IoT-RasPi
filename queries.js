@@ -29,10 +29,13 @@ function getAllSensors(req, res, next) {
       return next(err);
     });
 }
-
+//change " where id = $1" to "where type = $(something?)"
 function getSingleSensor(req, res, next) {
   var sensorID = parseInt(req.params.id);
-  db.one('select * from sensors where id = $1', sensorID)
+  var sensorType = req.params.type;
+  //added previous line. commented next line, ID changed to type.
+  //db.one('select * from sensors where id = $1', sensorID)
+  db.one('select * from sensors where type = $1', sensorType)
     .then(function(data) {
       res.status(200)
         .json({
@@ -50,7 +53,8 @@ function createSensor(req, res, next){
 
   //db.none('insert into sensors(type, timer, value)' +
   //db.none changed to db.one to see if new ID won't be created.
-  db.one('insert into sensors(type, timer, value)' +
+  //changed back to original
+  db.none('insert into sensors(type, timer, value)' +
       'values(${type}, ${timer}, ${value})',
     req.body)
       .then(function () {
@@ -65,9 +69,11 @@ function createSensor(req, res, next){
         });
 };
 function updateSensor(req, res, next) {
-  db.none('update sensors set type=$1, timer=$2, value=$3 where id=$4',
-    [req.body.type, parseInt(req.body.timer), parseInt(req.body.value),
-       parseInt(req.params.id)])
+  //db.none('update sensors set type=$1, timer=$2, value=$3 where id=$4',
+  db.none('update sensors set timer=$1, value=$2 where type=$3',
+    [/*req.body.type,*/ (req.body.timer), parseInt(req.body.value),  /*parseInt(req.params.id)*/])
+      //removed parseInt from parseInt(req.body.timer) because timer is string not Int.
+
     .then(function () {
       res.status(200)
         .json({
