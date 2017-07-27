@@ -39,7 +39,8 @@ function ($scope, $rootScope, $http, $interval) {
             //console.log("Payload timer: " + payload.timer);
 
 
-
+/////client.controller not being called..probably
+//^^^
 
         }
       }
