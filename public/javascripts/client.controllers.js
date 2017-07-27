@@ -5,12 +5,13 @@
 
 /*globals angular */
 /*eslint-env jquery */
-
+var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 
 
 console.log("client.controllers.js Starting now ... ");
 
 var payload = {};
+
 
 var homeControllers = angular.module('HomeControllers', []);
 
