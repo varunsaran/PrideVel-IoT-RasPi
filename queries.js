@@ -35,7 +35,7 @@ function getSingleSensor(req, res, next) {
   var sensorType = req.params.type;
   //added previous line. commented next line, ID changed to type.
   //db.one('select * from sensors where id = $1', sensorID)
-  db.one('select * from sensors where type = $1', sensorType)
+  db.any('select * from sensors where type = $1', sensorType)
     .then(function(data) {
       res.status(200)
         .json({
