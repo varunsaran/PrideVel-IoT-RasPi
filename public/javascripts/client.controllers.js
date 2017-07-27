@@ -28,6 +28,9 @@ function ($scope, $rootScope, $http, $interval) {
 // response.data.data.value
 //data instead of data
 //value instead of motioDetected
+      console.log("response.data.data: " + response.data.data);
+      console.log("response.data.data.timer: " + response.data.data.timer);
+
       if (response.data.data !== undefined) {
         // switch on when motion is detected
         if(Object.keys(response.data.data).length > 0){
@@ -65,7 +68,9 @@ function ($scope, $rootScope, $http, $interval) {
   // Someone asked us to refresh
   $rootScope.$on('refreshSensorData', function(){
     // Check for new input events twice per second
-    var pollingInterval = 500;
+    var pollingInterval = 2000;
+    //changed from 500 to 2000
+
     // Prevent race conditions - stop any current polling, then issue a new
     // refresh task immediately, and then start polling.  Note that polling
     // sleeps first, so we won't be running two refreshes back-to-back.
@@ -119,7 +124,8 @@ window.onload = function () {
 
 						x: date,
 						//y: yVal
-						y: payload.value
+						y: payload.timer
+            //payload.value changed to payload.timer
 
 				});
 				}
