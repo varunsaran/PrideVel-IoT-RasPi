@@ -6,7 +6,6 @@
 /*globals angular */
 /*eslint-env jquery */
 
-var request = require('request');
 
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 
@@ -15,19 +14,7 @@ console.log("client.controllers.js Starting now ... ");
 
 var payload = {};
 
-var r = request({
-    url: "https://stark-sierra-48385.herokuapp.com/api/sensors/ldr",
-    method: "GET",
 
-}
-, function (error, response, body){
-  console.log(error + ": ERROR!!!!!");
-});
-console.log("data: " + r.body.data);
-console.log("value: " + r.body.data.value);
-
-
-/*
 var homeControllers = angular.module('HomeControllers', []);
 
 
@@ -40,14 +27,10 @@ function ($scope, $rootScope, $http, $interval) {
       method: 'GET',
       url: '/api/sensors/ldr'
     }).then(function successCallback(response) {
-// response.data.data.value
-//data instead of data
-//value instead of motioDetected
 
 
-
-      console.log("response.data.data: " + response.data.data);
-      console.log("response.data.data.value: " + response.data.data.timer);
+      console.log("response.data.data: " + response.body.data);
+      console.log("response.data.data.value: " + response.body.data.timer);
 
       if (response.data.data !== undefined) {
         // switch on when motion is detected
@@ -109,7 +92,7 @@ function ($scope, $rootScope, $http, $interval) {
 
 
 
-*/
+
 
 
 
