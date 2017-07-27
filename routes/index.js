@@ -24,7 +24,7 @@ get all URLs
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile('index.html', { root: __dirname  } )
+  res.sendfile('index.html', { root: ../ } )
 });
 
 module.exports = router;
