@@ -127,9 +127,9 @@ window.onload = function () {
 
 					dps.push({
 
-						x: payload.timer
+						x: payload.timer,
 
-						y: parseFloat(payload.value)
+						y: payload.value
 
 
 
