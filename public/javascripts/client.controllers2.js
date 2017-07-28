@@ -8,10 +8,10 @@
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 console.log("client.controllers.js Starting now ... ");
 var payloadTemp = {};
-var homeControllers = angular.module('HomeControllers', []);
+var homeControllerstemp = angular.module('HomeControllers', []);
 
 
-homeControllers.controller('HomeController', ['$scope', '$rootScope', '$http', '$interval',
+homeControllersTemp.controller('HomeController', ['$scope', '$rootScope', '$http', '$interval',
 function ($scope, $rootScope, $http, $interval) {
 
    // Set of all tasks that should be performed periodically
