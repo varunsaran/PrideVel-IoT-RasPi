@@ -7,7 +7,7 @@
 /*eslint-env jquery */
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 console.log("client.controllers.js Starting now ... ");
-var payload = {};
+var payloadTemp = {};
 var homeControllers = angular.module('HomeControllers', []);
 
 
@@ -25,8 +25,8 @@ function ($scope, $rootScope, $http, $interval) {
       if (response.data.data[0] !== undefined) {
         // switch on when motion is detected
         if(Object.keys(response.data.data[0]).length > 0){
-          payload = response.data.data[0];
-            document.getElementById('spanTemp').innerHTML= payload.value;
+          payloadTemp = response.data.data[0];
+            document.getElementById('spanTemp').innerHTML= payloadTemp.value;
 
 
         }
@@ -80,7 +80,7 @@ function ($scope, $rootScope, $http, $interval) {
 
 
 
-window.onload = function () {
+window.onloadTemp = function () {
 
 		var dps = []; // dataPoints
 
@@ -103,7 +103,7 @@ window.onload = function () {
 		var updateInterval = 20;
 		var dataLength = 1000; // number of dataPoints visible at any point
 
-		var updateChart = function (count) {
+		var updateChartTemp = function (count) {
 			count = count || 1;
 			// count is number of times loop runs to generate random dataPoints.
 
@@ -132,9 +132,9 @@ window.onload = function () {
 		};
 
 		// generates first set of dataPoints
-		updateChart(dataLength);
+		updateChartTemp(dataLength);
 
 		 //update chart after specified time.
-		setInterval(function(){updateChart();}, updateInterval);
+		setInterval(function(){updateChartTemp();}, updateInterval);
 
 	};
