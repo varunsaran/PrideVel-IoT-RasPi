@@ -59,6 +59,8 @@ function ($scope, $rootScope, $http, $interval) {
       polling = undefined;
     }
   };
+
+
   // Someone asked us to refresh
   $rootScope.$on('refreshSensorData', function(){
     // Check for new input events twice per second
@@ -121,10 +123,10 @@ window.onload = function () {
 
 				if('value' in payload){
 					console.log("payload.value equals " + payload.value);
-					// var date = new Date (payload.timer);
+
 					dps.push({
 
-						x: date,
+						x: payload.timer
 						//y: yVal
 						y: payload.value
             //payload.value changed to payload.timer
