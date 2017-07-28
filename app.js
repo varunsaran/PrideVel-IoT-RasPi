@@ -71,8 +71,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-var myJSONObject2 = {"type":"ldr","timer": 1 ,"value":1};
-/*
+var myJSONObject2 = {"type":"temp","timer": 1 ,"value":1};
+
 request({
     url: "https://stark-sierra-48385.herokuapp.com/api/sensors",
     method: "POST",
@@ -84,7 +84,7 @@ request({
   console.log(response + ": response!!!!!");
   console.log(body + ": body!!!!!");
 });
-*/
+
 request({
     url: "https://stark-sierra-48385.herokuapp.com/api/sensors/ldr",
     method: "GET",
