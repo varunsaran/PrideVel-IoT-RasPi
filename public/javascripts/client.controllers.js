@@ -84,8 +84,7 @@ function ($scope, $rootScope, $http, $interval) {
 window.onload = function () {
 
 		var dps = []; // dataPoints
-
-		var chart = new CanvasJS.Chart("chartContainerLDR",{
+		var chartLDR = new CanvasJS.Chart("chartContainerLDR",{
 			title :{
 				text: "Live LDR Data"
 			},
@@ -128,7 +127,7 @@ window.onload = function () {
 				dps.shift();
 			}
 
-			chart.render();
+		 chartLDR.render();
 
 		};
 
