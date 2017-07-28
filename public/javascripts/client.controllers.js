@@ -120,7 +120,7 @@ window.onload = function () {
 
 
 				if('value' in payload){
-
+          console.log(payload.timer);
 					dps.push({
 
 						x: payload.timer,
