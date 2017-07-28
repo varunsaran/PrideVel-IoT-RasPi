@@ -38,6 +38,7 @@ function ($scope, $rootScope, $http, $interval) {
           //payload = JSON.parse(response.data.data);
           payload = response.data.data[0];
             $('#switch').prop('checked', payload.value);
+            document.getElementById('span1').innerHTML= payload.value;
 
 
             //console.log("Payload motion: " + payload.value);
