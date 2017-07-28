@@ -5,16 +5,9 @@
 
 /*globals angular */
 /*eslint-env jquery */
-
-
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
-
-
 console.log("client.controllers.js Starting now ... ");
-
 var payload = {};
-
-
 var homeControllers = angular.module('HomeControllers', []);
 
 
@@ -121,6 +114,7 @@ window.onload = function () {
 
 				if('value' in payload){
           var date = payload.timer;
+          console.log(date);
 					dps.push({
 
 						x: date,
