@@ -62,7 +62,7 @@ function ($scope, $rootScope, $http, $interval) {
   // Someone asked us to refresh
   $rootScope.$on('refreshSensorData', function(){
     // Check for new input events twice per second
-    var pollingInterval = 2000;
+    var pollingInterval = 1000;
     //changed from 500 to 2000
 
     // Prevent race conditions - stop any current polling, then issue a new
@@ -94,10 +94,10 @@ window.onload = function () {
 
 		var chart = new CanvasJS.Chart("chartContainer",{
 			title :{
-				text: "Live Sensor Data"
+				text: "Live LDR Data"
 			},
 			axisY:{
-				title: "Sensor Status (0 or 1)"
+				title: "Sensor Status "
 				},
 
 			data: [{
@@ -121,7 +121,7 @@ window.onload = function () {
 
 				if('value' in payload){
 					console.log("payload.value equals " + payload.value);
-					var date = new Date (payload.timer);
+					// var date = new Date (payload.timer);
 					dps.push({
 
 						x: date,
