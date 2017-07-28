@@ -35,13 +35,13 @@ function ($scope, $rootScope, $http, $interval) {
   };
 
   var polling;
-  var startPolling = function(pollingInterval) {
+  var startPollingTemp = function(pollingInterval) {
     polling = $interval(function() {
       runIntervalTaskstemp();
     }, pollingInterval);
   };
 
-  var stopPolling = function() {
+  var stopPollingtemp = function() {
     if (angular.isDefined(polling)) {
       $interval.cancel(polling);
       polling = undefined;
@@ -58,15 +58,15 @@ function ($scope, $rootScope, $http, $interval) {
     // Prevent race conditions - stop any current polling, then issue a new
     // refresh task immediately, and then start polling.  Note that polling
     // sleeps first, so we won't be running two refreshes back-to-back.
-    stopPolling();
+    stopPollingTemp();
     runIntervalTasksTemp();
-    startPolling(pollingInterval);
+    startPollingtemp(pollingInterval);
   });
 
   // Tell ourselves to refresh new mail count and start polling
   $rootScope.$broadcast('refreshSensorData');
   $scope.$on('$destroy', function() {
-    stopPolling();
+    stopPollingTemp();
   });
 }
 ]);
