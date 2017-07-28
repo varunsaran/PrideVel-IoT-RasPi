@@ -120,10 +120,10 @@ window.onload = function () {
 
 
 				if('value' in payload){
-          console.log(payload.timer);
+          var date = payload.timer;
 					dps.push({
 
-						x: payload.timer,
+						x: date,
 						y: parseFloat(payload.value)
 				});
 				}
