@@ -78,7 +78,7 @@ function ($scope, $rootScope, $http, $interval) {
 
 
 
-window.onloadTemp = function () {
+window.onload = function () {
 
 		var dps = []; // dataPoints
 
