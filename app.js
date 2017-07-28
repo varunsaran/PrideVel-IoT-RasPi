@@ -94,6 +94,6 @@ request({
   console.log(error + ": ERROR!!!!!");
   console.log("body!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!: " + body);
   var body = JSON.parse(body);
-  console.log("body.data[1]: " + body.data[1]);
-  console.log("body.data[1].value: " + body.data[1].value);
+  console.log("body.data[0]: " + body.data[1]);
+  console.log("body.data[0].value: " + body.data[1].value);
 });
