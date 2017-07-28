@@ -15,7 +15,7 @@ homeControllers.controller('HomeController', ['$scope', '$rootScope', '$http', '
 function ($scope, $rootScope, $http, $interval) {
 
    // Set of all tasks that should be performed periodically
-  var runIntervalTasks = function() {
+  var runIntervalTasksTemp = function() {
     $http({
       method: 'GET',
       url: '/api/sensors/temp'
@@ -26,9 +26,7 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data[0]).length > 0){
           payloadTemp = response.data.data[0];
-            document.getElementById('spanTemp').innerHTML= payloadTemp.value;
-
-
+          document.getElementById('spanTemp').innerHTML= payloadTemp.value;
         }
       }
     }, function errorCallback(response) {
@@ -39,7 +37,7 @@ function ($scope, $rootScope, $http, $interval) {
   var polling;
   var startPolling = function(pollingInterval) {
     polling = $interval(function() {
-      runIntervalTasks();
+      runIntervalTaskstemp();
     }, pollingInterval);
   };
 
@@ -61,7 +59,7 @@ function ($scope, $rootScope, $http, $interval) {
     // refresh task immediately, and then start polling.  Note that polling
     // sleeps first, so we won't be running two refreshes back-to-back.
     stopPolling();
-    runIntervalTasks();
+    runIntervalTasksTemp();
     startPolling(pollingInterval);
   });
 
