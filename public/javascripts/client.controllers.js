@@ -116,7 +116,7 @@ window.onload = function () {
           var date = payload.timer;
           console.log(date);
 					dps.push({
-						x: value.toString(date),
+						x: String(date),
 						y: parseFloat(payload.value)
 				});
 				}
