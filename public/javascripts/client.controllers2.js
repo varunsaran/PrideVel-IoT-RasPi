@@ -18,7 +18,7 @@ function ($scope, $rootScope, $http, $interval) {
   var runIntervalTasks = function() {
     $http({
       method: 'GET',
-      url: '/api/sensors/ldr'
+      url: '/api/sensors/temp'
     }).then(function successCallback(response) {
 
 
@@ -26,8 +26,8 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data[0]).length > 0){
           payload = response.data.data[0];
-            $('#switch').prop('checked', payload.value);
-            document.getElementById('spanLDR').innerHTML= payload.value;
+
+            document.getElementById('spanTemp').innerHTML= payload.value;
 
 
         }
@@ -87,7 +87,7 @@ window.onload = function () {
 
 		var chart = new CanvasJS.Chart("chartContainer",{
 			title :{
-				text: "Live LDR Data"
+				text: "Live Temp Data"
 			},
 			axisY:{
 				title: "Sensor Status "
@@ -116,7 +116,7 @@ window.onload = function () {
           var date = payload.timer;
           console.log(date);
 					dps.push({
-						x: xVal,
+						x: date,
 						y: parseFloat(payload.value)
 				});
 				}
