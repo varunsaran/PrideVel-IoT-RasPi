@@ -93,5 +93,7 @@ request({
 , function (error, response, body){
   console.log(error + ": ERROR!!!!!");
   console.log("body!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!: " + body);
+  console.log("body.data !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!: " + body.data);
+  console.log("body.data.value!!!!: " + body.data.value);
   console.log("response: " + response);
 });
