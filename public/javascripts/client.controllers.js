@@ -29,8 +29,8 @@ function ($scope, $rootScope, $http, $interval) {
     }).then(function successCallback(response) {
 
 
-      console.log("response.data.data: " + response.body.data);
-      console.log("response.data.data.value: " + response.body.data.timer);
+      console.log("response.data.data: " + response.data.data);
+      console.log("response.data.data.value: " + response.data.data.timer);
 
       if (response.data.data !== undefined) {
         // switch on when motion is detected
