@@ -11,7 +11,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
+var value ;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -94,6 +94,7 @@ request({
   console.log(error + ": ERROR!!!!!");
   console.log("body!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!: " + body);
   var body = JSON.parse(body);
+  value = body.data[0].value;
   console.log("body.data[0]: " + body.data[0]);
   console.log("body.data[0].value: " + body.data[0].value);
     //$('#switch').prop('checked', body.data[0].value);
