@@ -5,7 +5,7 @@
 
 /*globals angular */
 /*eslint-env jquery */
-var core = angular.module('core', ['ngRoute', 'HomeControllers']);
+var coreTemp = angular.module('core', ['ngRoute', 'HomeControllers']);
 console.log("client.controllers.js Starting now ... ");
 var payloadTemp = {};
 var homeControllersTemp = angular.module('HomeControllers', []);
@@ -41,7 +41,7 @@ function ($scope, $rootScope, $http, $interval) {
     }, pollingInterval);
   };
 
-  var stopPollingtemp = function() {
+  var stopPollingTemp = function() {
     if (angular.isDefined(polling)) {
       $interval.cancel(polling);
       polling = undefined;
