@@ -8,7 +8,7 @@
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 console.log("client.controllers.js Starting now ... ");
 var payloadTemp = {};
-var homeControllerstemp = angular.module('HomeControllers', []);
+var homeControllersTemp = angular.module('HomeControllers', []);
 
 
 homeControllersTemp.controller('HomeController', ['$scope', '$rootScope', '$http', '$interval',
