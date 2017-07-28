@@ -35,18 +35,9 @@ function ($scope, $rootScope, $http, $interval) {
       if (response.data.data[0] !== undefined) {
         // switch on when motion is detected
         if(Object.keys(response.data.data[0]).length > 0){
-          //payload = JSON.parse(response.data.data);
           payload = response.data.data[0];
             $('#switch').prop('checked', payload.value);
             document.getElementById('span1').innerHTML= payload.value;
-
-
-            //console.log("Payload motion: " + payload.value);
-            //console.log("Payload timer: " + payload.timer);
-
-
-/////client.controller not being called..probably
-//^^^
 
         }
       }
@@ -97,7 +88,7 @@ function ($scope, $rootScope, $http, $interval) {
 
 
 
-/*window.onload = function () {
+window.onload = function () {
 
 		var dps = []; // dataPoints
 
@@ -130,12 +121,12 @@ function ($scope, $rootScope, $http, $interval) {
 
 				if('value' in payload){
 					console.log("payload.value equals " + payload.value);
-					var date = new Date (payload.value);
+					var date = new Date (payload.timer);
 					dps.push({
 
 						x: date,
 						//y: yVal
-						y: payload.timer
+						y: payload.value
             //payload.value changed to payload.timer
 
 				});
@@ -159,4 +150,3 @@ function ($scope, $rootScope, $http, $interval) {
 		setInterval(function(){updateChart();}, updateInterval);
 
 	};
-  */
