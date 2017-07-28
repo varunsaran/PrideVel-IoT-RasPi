@@ -29,14 +29,14 @@ function ($scope, $rootScope, $http, $interval) {
     }).then(function successCallback(response) {
 
 
-      console.log("response.data.data: " + response.data.data);
-      console.log("response.data.data.value: " + response.data.data.timer);
+      console.log("response.data.data: " + response.data.data[0]);
+      console.log("response.data.data.value: " + response.data.data[0].value);
 
-      if (response.data.data !== undefined) {
+      if (response.data.data[0] !== undefined) {
         // switch on when motion is detected
-        if(Object.keys(response.data.data).length > 0){
+        if(Object.keys(response.data.data[0]).length > 0){
           //payload = JSON.parse(response.data.data);
-          payload = response.data.data;
+          payload = response.data.data[0];
             $('#switch').prop('checked', payload.value);
 
 
