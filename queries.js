@@ -70,7 +70,7 @@ function createSensor(req, res, next){
 };
 function updateSensor(req, res, next) {
   //db.none('update sensors set type=$1, timer=$2, value=$3 where id=$4',
-  db.none('update sensors set timer=$1, value=$2 where type=$3',
+  db.none('update sensors set timer=$2, value=$3 where type=$1',
     [/*req.body.type,*/ (req.body.timer), parseInt(req.body.value),  /*parseInt(req.params.id)*/])
       //removed parseInt from parseInt(req.body.timer) because timer is string not Int.
 
