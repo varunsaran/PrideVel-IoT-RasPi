@@ -38,6 +38,7 @@ function ($scope, $rootScope, $http, $interval) {
           payload = response.data.data[0];
             $('#switch').prop('checked', payload.value);
             document.getElementById('span1').innerHTML= payload.value;
+            console.log("VALUE!!!!!!!!!!!!!!!!: " + payload.value);
 
         }
       }
@@ -127,9 +128,10 @@ window.onload = function () {
 					dps.push({
 
 						x: payload.timer
-						//y: yVal
-						y: payload.value
-            //payload.value changed to payload.timer
+
+						y: parseFloat(payload.value)
+
+
 
 				});
 				}
