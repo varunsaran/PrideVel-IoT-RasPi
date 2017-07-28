@@ -98,5 +98,5 @@ request({
   console.log("body.data[0]: " + body.data[0]);
   console.log("body.data[0].value: " + body.data[0].value);
     //$('#switch').prop('checked', body.data[0].value);
-    document.getElementById('span1').innerHTML= body.data[0].value;
+    //document.getElementById('span1').innerHTML= body.data[0].value;
 });
