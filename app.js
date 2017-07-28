@@ -85,15 +85,13 @@ request({
   console.log(body + ": body!!!!!");
 });
 */
-var r = request({
+request({
     url: "https://stark-sierra-48385.herokuapp.com/api/sensors/ldr",
     method: "GET",
 
 }
 , function (error, response, body){
   console.log(error + ": ERROR!!!!!");
-
+  console.log("body: " + body);
+  console.log("response: " + response);
 });
-console.log("body: " + r.body);
-console.log("data: " + r.body.data);
-console.log("value: " + r.body.data.value);
