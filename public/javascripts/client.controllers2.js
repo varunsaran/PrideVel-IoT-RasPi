@@ -26,7 +26,6 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data[0]).length > 0){
           payload = response.data.data[0];
-
             document.getElementById('spanTemp').innerHTML= payload.value;
 
 
@@ -85,7 +84,7 @@ window.onload = function () {
 
 		var dps = []; // dataPoints
 
-		var chart = new CanvasJS.Chart("chartContainer",{
+		var chart = new CanvasJS.Chart("chartContainerTemp",{
 			title :{
 				text: "Live Temp Data"
 			},

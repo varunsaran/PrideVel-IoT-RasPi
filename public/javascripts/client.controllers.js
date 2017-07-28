@@ -85,7 +85,7 @@ window.onload = function () {
 
 		var dps = []; // dataPoints
 
-		var chart = new CanvasJS.Chart("chartContainer",{
+		var chart = new CanvasJS.Chart("chartContainerLDR",{
 			title :{
 				text: "Live LDR Data"
 			},

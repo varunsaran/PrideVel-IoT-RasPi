@@ -45,33 +45,45 @@ above line should no longer be needed. code from thsi file moved to client.contr
     <td>
   <p>
     LDR value: <span id="spanLDR"></span>
-    Temp value: <span id="spanTemp"></span>
+
   </p>
 </td>
 
+    <td>
+  <p>
+    Temp value: <span id="spanTemp"></span>
+
+  </p>
+</td>
 
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
 
 </head>
 <body>
-	<div id="chartContainer" style="height: 300px; width:100%;">
+	<div id="chartContainerLDR" style="height: 300px; width:100%;">
 	</div>
 </body>
 
+<body>
+	<div id="chartContainerTemp" style="height: 300px; width:100%;">
+	</div>
+</body>
     </body>
 
-    <section>
+  <!--  <section>
 <div ng-controller="HomeController" >
     <div class="switch">
         <label>
             Light
         <input id="switch" type="checkbox">
-        <!--<input id="switch" type="text">-->
+        <!--<input id="switch" type="text">//end comment here
         <span class="lever"></span>
             Dark
         </label>
     </div>
 </div>
 </section>
+-->
+
 </html>
