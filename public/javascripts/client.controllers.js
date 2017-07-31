@@ -52,7 +52,7 @@ function ($scope, $rootScope, $http, $interval) {
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               console.log("payload.timer: " + payloadTemp.timer)
-              var tempTime = new Date(Date.parse(payloadTemp[0]));
+              var tempTime = new Date(Date.parse(payloadTemp[0][0]));
               console.log("date: " + tempTime )
 
 
