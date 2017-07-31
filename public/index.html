@@ -27,7 +27,8 @@ above line should no longer be needed. code from thsi file moved to client.contr
 
 
 <script type = 'text/javascript' src='javascripts/client.controllers.js'></script>
-<!--<script type = 'text/javascript' src='javascripts/client.controllers2.js'></script>-->
+<!-- client.controllers2.js no longer needed because it was combined with client.controllers.js
+<script type = 'text/javascript' src='javascripts/client.controllers2.js'></script>-->
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,7 +38,19 @@ above line should no longer be needed. code from thsi file moved to client.contr
    <title>Raspberry Pi Sensors</title>
     </head>
   <body>
-
+    <section>
+   <div ng-controller="HomeController" >
+     <div class="switch">
+         <label>
+             Light
+         <input id="switch" type="checkbox">
+         <!--<input id="switch" type="text">-->
+         <span class="lever"></span>
+             Dark
+         </label>
+     </div>
+   </div>
+   </section>
 
 
     <td>
@@ -69,19 +82,7 @@ above line should no longer be needed. code from thsi file moved to client.contr
 </body>
     </body>
 
-   <section>
-<div ng-controller="HomeController" >
-    <div class="switch">
-        <label>
-            Light
-        <input id="switch" type="checkbox">
-        <!--<input id="switch" type="text">-->
-        <span class="lever"></span>
-            Dark
-        </label>
-    </div>
-</div>
-</section>
+
 
 
 </html>
