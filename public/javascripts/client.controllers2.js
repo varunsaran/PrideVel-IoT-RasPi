@@ -37,7 +37,7 @@ function ($scope, $rootScope, $http, $interval) {
   var polling;
   var startPollingTemp = function(pollingInterval) {
     polling = $interval(function() {
-      runIntervalTaskstemp();
+      runIntervalTasksTemp();
     }, pollingInterval);
   };
 
@@ -50,7 +50,7 @@ function ($scope, $rootScope, $http, $interval) {
 
 
   // Someone asked us to refresh
-  $rootScope.$on('refreshSensorData', function(){
+  $rootScope.$on('refreshSensorDataTemp', function(){
     // Check for new input events twice per second
     var pollingInterval = 1000;
     //changed from 500 to 2000
@@ -60,11 +60,11 @@ function ($scope, $rootScope, $http, $interval) {
     // sleeps first, so we won't be running two refreshes back-to-back.
     stopPollingTemp();
     runIntervalTasksTemp();
-    startPollingtemp(pollingInterval);
+    startPollingTemp(pollingInterval);
   });
 
   // Tell ourselves to refresh new mail count and start polling
-  $rootScope.$broadcast('refreshSensorData');
+  $rootScope.$broadcast('refreshSensorDataTemp');
   $scope.$on('$destroy', function() {
     stopPollingTemp();
   });
