@@ -162,3 +162,66 @@ window.onload = function () {
 		setInterval(function(){updateChart();}, updateInterval);
 
 	};
+
+  window.addEventListener("load", function(evt) {
+
+
+  //window.onload = function () {
+
+  		var dpsTemp = []; // dataPoints
+
+  		var chartTemp = new CanvasJS.Chart("chartContainerTemp",{
+  			title :{
+  				text: "Live Temp Data"
+  			},
+  			axisY:{
+  				title: "Sensor Status "
+  				},
+
+  			data: [{
+  				type: "line",
+  				dataPoints: dpsTemp
+  			}]
+  		});
+
+  		var xVal = 0;
+  		var yVal = 1;
+  		var updateInterval = 20;
+  		var dataLength = 1000; // number of dataPoints visible at any point
+
+  		var updateChartTemp = function (count) {
+  			count = count || 1;
+  			// count is number of times loop runs to generate random dataPoints.
+
+  			for (var j = 0; j < count; j++) {
+  				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
+
+
+  				if('value' in payload){
+            var date = payload.timer;
+            //console.log(date);
+  					dpsTemp.push({
+  						x: xVal,
+  						y: parseFloat(payload.value)
+  				});
+  				}
+
+  				xVal++;
+  			}
+  			if (dpsTemp.length > dataLength)
+  			{
+  				dpsTemp.shift();
+  			}
+
+  			chartTemp.render();
+
+  		};
+
+  		// generates first set of dataPoints
+  		updateChartTemp(dataLength);
+
+  		 //update chart after specified time.
+  		setInterval(function(){updateChartTemp();}, updateInterval);
+
+  	//};
+  });
