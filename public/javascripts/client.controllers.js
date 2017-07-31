@@ -18,7 +18,7 @@ function ($scope, $rootScope, $http, $interval) {
   var runIntervalTasks = function() {
     $http({
       method: 'GET',
-      url: '/api/sensors/temp'
+      url: '/api/sensors/ldr'
     }).then(function successCallback(response) {
 
 
@@ -114,7 +114,7 @@ window.onload = function () {
 
 				if('value' in payload){
           var date = payload.timer;
-          console.log(date);
+          //console.log(date);
 					dps.push({
 						x: xVal,
 						y: parseFloat(payload.value)
