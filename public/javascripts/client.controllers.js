@@ -30,8 +30,9 @@ function ($scope, $rootScope, $http, $interval) {
           payload = response.data.data[0];
           //  $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
-            console.log("payload.value: " + payload.value)
-            ldrTime = new Date(Date.parse(payload.timer[0]));
+            console.log("payload.timer: " + payload.timer)
+            ldrTime = new Date(Date.parse(payload.timer));
+            //parse(payload.timer[0]); ^^^
             console.log("date: " + ldrTime );
 
         }
@@ -52,7 +53,7 @@ function ($scope, $rootScope, $http, $interval) {
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               //console.log("payload.timer: " + payloadTemp.timer)
-              var tempTime = new Date(Date.parse(payloadTemp[0]));
+              var tempTime = new Date(Date.parse(payloadTemp));
 
 
 
@@ -206,7 +207,7 @@ window.onload = function () {
   						y: parseFloat(payloadTemp.value)
   				});
   				}
-          
+
   				xVal++;
   			}
   			if (dpsTemp.length > dataLength)
