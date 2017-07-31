@@ -135,7 +135,7 @@ window.onload = function () {
 				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
 
 
-				if('value' in payload){
+				if('timer' in payload){
           var date = payload.timer;
           //console.log(date);
 					dps.push({
@@ -197,9 +197,7 @@ window.onload = function () {
   				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
 
 
-  				if('value' in payload){
-            var date = payload.timer;
-            //console.log(date);
+  				if('timer' in payloadTemp){
   					dpsTemp.push({
   						x: payloadTemp.timer,
   						y: parseFloat(payloadTemp.value)
