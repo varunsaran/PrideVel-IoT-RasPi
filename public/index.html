@@ -38,34 +38,33 @@ above line should no longer be needed. code from thsi file moved to client.contr
    <title>Raspberry Pi Sensors</title>
     </head>
   <body>
-    <section>
-   <div ng-controller="HomeController" >
-     <div class="switch">
-         <label>
-             Light
-         <input id="switch" type="checkbox">
-         <!--<input id="switch" type="text">-->
-         <span class="lever"></span>
-             Dark
-         </label>
-     </div>
-   </div>
-   </section>
 
+    <td>
+    <p>
+    Temp value: <span id="spanTemp"></span> degrees C
 
+    </p>
+    </td>
     <td>
   <p>
     LDR value: <span id="spanLDR"></span>
 
   </p>
 </td>
+<section>
+<div ng-controller="HomeController" >
+ <div class="switch">
+     <label>
+         Light
+     <input id="switch" type="checkbox">
+     <!--<input id="switch" type="text">-->
+     <span class="lever"></span>
+         Dark
+     </label>
+ </div>
+</div>
+</section>
 
-    <td>
-  <p>
-    Temp value: <span id="spanTemp"></span>
-
-  </p>
-</td>
 
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
