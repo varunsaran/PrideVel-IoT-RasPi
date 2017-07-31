@@ -80,9 +80,9 @@ function ($scope, $rootScope, $http, $interval) {
 
 window.onload = function () {
 
-		var dps = []; // dataPoints
+		var dpsTemp = []; // dataPoints
 
-		var chart = new CanvasJS.Chart("chartContainerTemp",{
+		var chartTemp = new CanvasJS.Chart("chartContainerTemp",{
 			title :{
 				text: "Live Temp Data"
 			},
@@ -92,7 +92,7 @@ window.onload = function () {
 
 			data: [{
 				type: "line",
-				dataPoints: dps
+				dataPoints: dpstemp
 			}]
 		});
 
@@ -112,7 +112,7 @@ window.onload = function () {
 				if('value' in payload){
           var date = payload.timer;
           console.log(date);
-					dps.push({
+					dpsTemp.push({
 						x: xVal,
 						y: parseFloat(payload.value)
 				});
@@ -120,12 +120,12 @@ window.onload = function () {
 
 				xVal++;
 			}
-			if (dps.length > dataLength)
+			if (dpsTemp.length > dataLength)
 			{
-				dps.shift();
+				dpsTemp.shift();
 			}
 
-			chart.render();
+			chartTemp.render();
 
 		};
 
