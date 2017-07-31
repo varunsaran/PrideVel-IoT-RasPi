@@ -200,13 +200,13 @@ window.onload = function () {
   				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
 
 
-  				if('value' in payloadTemp){
+  				if(tempTime !== undefined){
   					dpsTemp.push({
   						x: tempTime,
   						y: parseFloat(payloadTemp.value)
   				});
   				}
-
+          
   				xVal++;
   			}
   			if (dpsTemp.length > dataLength)
