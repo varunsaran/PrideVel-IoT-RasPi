@@ -8,6 +8,7 @@
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 console.log("client.controllers.js Starting now ... ");
 var payload = {};
+var payloadTemp = {};
 var homeControllers = angular.module('HomeControllers', []);
 
 
@@ -16,6 +17,7 @@ function ($scope, $rootScope, $http, $interval) {
 
    // Set of all tasks that should be performed periodically
   var runIntervalTasks = function() {
+
     $http({
       method: 'GET',
       url: '/api/sensors/ldr'
@@ -26,14 +28,35 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data[0]).length > 0){
           payload = response.data.data[0];
-            $('#switch').prop('checked', payload.value);
+          //  $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.value: " + payload.value)
 
 
         }
       }
-    }, function errorCallback(response) {
+    },   function errorCallback(response) {
+          console.log("failed to listen to sensor data");
+      });
+      $http({
+        method: 'GET',
+        url: '/api/sensors/temp'
+      }).then(function successCallback(response) {
+
+
+        if (response.data.data[0] !== undefined) {
+          // switch on when motion is detected
+          if(Object.keys(response.data.data[0]).length > 0){
+            payloadTemp = response.data.data[0];
+            //  $('#switch').prop('checked', payload.value);
+              document.getElementById('spanTemp').innerHTML= payloadTemp.value;
+              console.log("payload.value: " + payloadTemp.value)
+
+
+          }
+        }
+      },
+    function errorCallback(response) {
         console.log("failed to listen to sensor data");
     });
   };

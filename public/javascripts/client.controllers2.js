@@ -113,7 +113,7 @@ window.addEventListener("load", function(evt) {
 
 				if('value' in payload){
           var date = payload.timer;
-          console.log(date);
+          //console.log(date);
 					dpsTemp.push({
 						x: xVal,
 						y: parseFloat(payload.value)
