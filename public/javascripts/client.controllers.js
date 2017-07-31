@@ -31,6 +31,7 @@ function ($scope, $rootScope, $http, $interval) {
           //  $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.value: " + payload.value)
+            ldrTime = new Date(Date.parse(payload.timer[0]));
 
 
         }
@@ -51,6 +52,7 @@ function ($scope, $rootScope, $http, $interval) {
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               console.log("payload.value: " + payloadTemp.value)
+              var temptime = new Date(Date.parse(payloadTemp[0]));
 
 
           }
@@ -135,11 +137,10 @@ window.onload = function () {
 				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
 
 
-				if('timer' in payload){
-          var date = payload.timer;
-          //console.log(date);
+				if('value' in payload){
+
 					dps.push({
-						x: payload.timer,
+						x: ldrTime,
 						y: parseFloat(payload.value)
 				});
 				}
@@ -197,9 +198,9 @@ window.onload = function () {
   				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
 
 
-  				if('timer' in payloadTemp){
+  				if('value' in payloadTemp){
   					dpsTemp.push({
-  						x: payloadTemp.timer,
+  						x: tempTime,
   						y: parseFloat(payloadTemp.value)
   				});
   				}
