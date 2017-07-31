@@ -139,7 +139,7 @@ window.onload = function () {
           var date = payload.timer;
           //console.log(date);
 					dps.push({
-						x: xVal,
+						x: payload.timer,
 						y: parseFloat(payload.value)
 				});
 				}
@@ -201,8 +201,8 @@ window.onload = function () {
             var date = payload.timer;
             //console.log(date);
   					dpsTemp.push({
-  						x: xVal,
-  						y: parseFloat(payload.value)
+  						x: payloadTemp.timer,
+  						y: parseFloat(payloadTemp.value)
   				});
   				}
 
