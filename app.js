@@ -70,11 +70,24 @@ app.use(function(err, req, res, next) {
   });
 });
 
-/*var myJSONObject = {"type":"ldr","timer": "2017-07-31 03:47:00.0:23.400000000000002",  "value":"0.453"};
+var myJSONObject = {"type":"ldr","timer": "2017-07-31 03:47:00.0:23.400000000000002",  "value":"0.453"};
 
 request({
     url: "https://stark-sierra-48385.herokuapp.com/api/sensors/ldr",
-    method: "PUT",
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: myJSONObject
+}
+, function (error, response, body){
+  console.log(error + ": ERROR!!!!!");
+  console.log(response + ": response!!!!!");
+  console.log(body + ": body!!!!!");
+});
+var myJSONObject = {"type":"temp","timer": "2017-07-31 03:47:00.0:23.400000000000002",  "value":"0.453"};
+
+request({
+    url: "https://stark-sierra-48385.herokuapp.com/api/sensors/temp",
+    method: "POST",
     json: true,   // <--Very important!!!
     body: myJSONObject
 }
@@ -84,7 +97,6 @@ request({
   console.log(body + ": body!!!!!");
 });
 
-*/
 request({
     url: "https://stark-sierra-48385.herokuapp.com/api/sensors/ldr",
     method: "GET",

@@ -32,7 +32,7 @@ function ($scope, $rootScope, $http, $interval) {
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.value: " + payload.value)
             ldrTime = new Date(Date.parse(payload.timer[0]));
-
+            console.log("date: " + ldrTime );
 
         }
       }
@@ -51,9 +51,9 @@ function ($scope, $rootScope, $http, $interval) {
             payloadTemp = response.data.data[0];
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
-              console.log("payload.timer: " + payloadTemp.timer)
-              var tempTime = new Date(Date.parse(payloadTemp[0][0]));
-              console.log("date: " + tempTime )
+              //console.log("payload.timer: " + payloadTemp.timer)
+              var tempTime = new Date(Date.parse(payloadTemp[0]));
+
 
 
 
