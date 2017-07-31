@@ -18,7 +18,7 @@ function ($scope, $rootScope, $http, $interval) {
   var runIntervalTasks = function() {
     $http({
       method: 'GET',
-      url: '/api/sensors/ldr'
+      url: '/api/sensors/temp'
     }).then(function successCallback(response) {
 
 
@@ -28,6 +28,7 @@ function ($scope, $rootScope, $http, $interval) {
           payload = response.data.data[0];
             $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
+            console.log("payload.value: " + payload.value)
 
 
         }
