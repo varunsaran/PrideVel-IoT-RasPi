@@ -77,8 +77,10 @@ function ($scope, $rootScope, $http, $interval) {
 
 
 
+window.addEventListener("load", function(evt) {
 
-window.onload = function () {
+
+//window.onload = function () {
 
 		var dpsTemp = []; // dataPoints
 
@@ -92,7 +94,7 @@ window.onload = function () {
 
 			data: [{
 				type: "line",
-				dataPoints: dpstemp
+				dataPoints: dpsTemp
 			}]
 		});
 
@@ -135,4 +137,5 @@ window.onload = function () {
 		 //update chart after specified time.
 		setInterval(function(){updateChartTemp();}, updateInterval);
 
-	};
+	//};
+  })
