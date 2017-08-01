@@ -11,6 +11,7 @@ router.get('/api/sensors/:type', db.getSingleSensor);
 router.post('/api/sensors', db.createSensor);
 router.put('/api/sensors/:type', db.updateSensor);
 router.delete('/api/sensors/:id', db.removeSensor);
+router.get('/api/sensors/latest/:type', db.getLatestSensor);
 
 
 /*

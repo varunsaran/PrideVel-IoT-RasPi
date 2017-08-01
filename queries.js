@@ -101,10 +101,28 @@ function removeSensor(req, res, next) {
       return next(err);
     });
 };
+
+function getLatestSensor(req, res, next) {
+  var sensorType = req.params.type;
+  db.one('SELECT type, timer, value FROM sensors ORDER BY timer DESC LIMIT 1 where type = $1' , sensorType)
+    .then(function(data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE sensor'
+        });
+    })
+    .catch(function(err){
+      return next(err);
+    });
+};
+
 module.exports = {
   getAllSensors: getAllSensors,
   getSingleSensor: getSingleSensor,
   createSensor: createSensor,
   updateSensor: updateSensor,
-  removeSensor: removeSensor
+  removeSensor: removeSensor,
+  getLatestSensor: getLatestSensor
 };
