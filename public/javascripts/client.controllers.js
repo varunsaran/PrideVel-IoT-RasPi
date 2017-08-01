@@ -30,7 +30,9 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data).length > 0){
           payload = response.data.data;
-          //  $('#switch').prop('checked', payload.value);
+          if(payload.value > 1){
+            $('#switch').prop('checked', payload.value);
+          }
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.timer: " + payload.timer)
             ldrTime = new Date(0);

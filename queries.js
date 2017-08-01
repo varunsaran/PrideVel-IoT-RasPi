@@ -39,9 +39,9 @@ function getSingleSensor(req, res, next) {
     .then(function(data) {
       res.status(200)
         .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ONE sensor'
+          //status: 'success',
+          data: data//,
+          //message: 'Retrieved ONE sensor'
         });
     })
     .catch(function(err){
