@@ -38,11 +38,11 @@ function getSingleSensor(req, res, next) {
   db.any('select * from sensors where type = $1', sensorType)
     .then(function(data) {
       res.status(200)
-        .json(//{
-          //status: 'success',
-          data//: data//,
-          //message: 'Retrieved ONE sensor'
-        //}
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE sensor'
+        }
       );
     })
     .catch(function(err){
