@@ -104,7 +104,7 @@ function removeSensor(req, res, next) {
 
 function getLatestSensor(req, res, next) {
   var sensorType = req.params.type;
-  db.one('SELECT type, timer, value FROM sensors ORDER BY timer DESC LIMIT 1 where type = $1' , sensorType)
+  db.one('SELECT type, timer, value FROM sensors where type = $1 ORDER BY timer DESC LIMIT 1'  , sensorType)
     .then(function(data) {
       res.status(200)
         .json({
