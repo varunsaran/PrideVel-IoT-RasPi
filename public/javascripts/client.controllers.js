@@ -9,7 +9,8 @@ var core = angular.module('core', ['ngRoute', 'HomeControllers']);
 console.log("client.controllers.js Starting now ... ");
 var payload = {};
 var payloadTemp = {};
-var tempTime ;
+var tempTime;
+var ldrTime;
 var homeControllers = angular.module('HomeControllers', []);
 
 
@@ -32,7 +33,7 @@ function ($scope, $rootScope, $http, $interval) {
           //  $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.timer: " + payload.timer)
-            ldrTime = new Date(Date.parse(payload.timer));
+            ldrTime = new Date(payload.timer);
 
             console.log("date: " + ldrTime );
 
@@ -54,7 +55,7 @@ function ($scope, $rootScope, $http, $interval) {
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               //console.log("payload.timer: " + payloadTemp.timer)
-              tempTime = new Date(Date.parse(payloadTemp.timer));
+              tempTime = new Date(payloadTemp.timer);
 
 
 
