@@ -33,7 +33,8 @@ function ($scope, $rootScope, $http, $interval) {
           //  $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.timer: " + payload.timer)
-            ldrTime = new Date(payload.timer);
+            ldrTime = new Date(0);
+            ldrtime.setUTCSeconds(payload.timer);
 
             console.log("date: " + ldrTime );
 
@@ -55,7 +56,8 @@ function ($scope, $rootScope, $http, $interval) {
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               //console.log("payload.timer: " + payloadTemp.timer)
-              tempTime = new Date(payloadTemp.timer);
+              tempTime = new Date(0);
+              tempTime.setUTCSeconds(payloadTemp.timer);
 
 
 
