@@ -46,10 +46,10 @@ function ($scope, $rootScope, $http, $interval) {
       }).then(function successCallback(response) {
 
 
-        if (response.data.data[0] !== undefined) {
+        if (response.data.data !== undefined) {
           // switch on when motion is detected
-          if(Object.keys(response.data.data[0]).length > 0){
-            payloadTemp = response.data.data[0];
+          if(Object.keys(response.data.data).length > 0){
+            payloadTemp = response.data.data;
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               //console.log("payload.timer: " + payloadTemp.timer)
@@ -141,7 +141,7 @@ window.onload = function () {
 
 
 				if('value' in payload){
-
+          console.log("value exists in latest ldr payload and value = " + payload.value + " and timer = " + ldrTime);
 					dps.push({
 						x: ldrTime,
 						y: parseFloat(payload.value)
