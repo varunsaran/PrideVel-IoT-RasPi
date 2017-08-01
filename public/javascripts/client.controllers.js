@@ -20,18 +20,18 @@ function ($scope, $rootScope, $http, $interval) {
 
     $http({
       method: 'GET',
-      url: '/api/sensors/ldr'
+      url: '/api/sensors/latest/ldr'
     }).then(function successCallback(response) {
 
 
-      if (response.data.data[0] !== undefined) {
+      if (response.data.data !== undefined) {
         // switch on when motion is detected
-        if(Object.keys(response.data.data[0]).length > 0){
-          payload = response.data.data[0];
+        if(Object.keys(response.data.data).length > 0){
+          payload = response.data.data;
           //  $('#switch').prop('checked', payload.value);
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.timer: " + payload.timer)
-            ldrTime = new Date(Date.parse(payload.timer[0]));
+            ldrTime = new Date(Date.parse(payload.timer));
 
             console.log("date: " + ldrTime );
 
@@ -42,7 +42,7 @@ function ($scope, $rootScope, $http, $interval) {
       });
       $http({
         method: 'GET',
-        url: '/api/sensors/temp'
+        url: '/api/sensors/latest/temp'
       }).then(function successCallback(response) {
 
 
@@ -53,7 +53,7 @@ function ($scope, $rootScope, $http, $interval) {
             //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
               //console.log("payload.timer: " + payloadTemp.timer)
-              var tempTime = new Date(Date.parse(payloadTemp[0]));
+              var tempTime = new Date(Date.parse(payloadTemp.timer));
 
 
 

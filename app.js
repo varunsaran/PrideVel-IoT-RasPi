@@ -69,7 +69,7 @@ app.use(function(err, req, res, next) {
     message: err.message
   });
 });
-
+/*
 var myJSONObject = {"type":"ldr","timer": "2017-08-01 03:47:00.0:23.400000000000002",  "value":"0.583"};
 
 request({
@@ -83,19 +83,7 @@ request({
   console.log(response + ": response!!!!!");
   console.log(body + ": body!!!!!");
 });
-var myJSONObject = {"type":"temp","timer": "2017-08-01 11:47:00.0:23.400000000000002",  "value":"23.83"};
-
-request({
-    url: "https://stark-sierra-48385.herokuapp.com/api/sensors/",
-    method: "POST",
-    json: true,   // <--Very important!!!
-    body: myJSONObject
-}
-, function (error, response, body){
-  console.log(error + ": ERROR!!!!!");
-  console.log(response + ": response!!!!!");
-  console.log(body + ": body!!!!!");
-});
+*/
 
 /*
 request({
