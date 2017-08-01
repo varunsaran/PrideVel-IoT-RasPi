@@ -34,7 +34,7 @@ function ($scope, $rootScope, $http, $interval) {
             document.getElementById('spanLDR').innerHTML= payload.value;
             console.log("payload.timer: " + payload.timer)
             ldrTime = new Date(0);
-            ldrtime.setUTCSeconds(payload.timer);
+            ldrTime.setUTCSeconds(payload.timer);
 
             console.log("date: " + ldrTime );
 
