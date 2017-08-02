@@ -36,7 +36,7 @@ function ($scope, $rootScope, $http, $interval) {
             $('#switch').prop('checked', false);
           }
 
-            document.getElementById('spanLDR').innerHTML= payload.value;
+            document.getElementById('spanLDR').innerHTML= 1-(payload.value/3.3);
             //console.log("payload.timer: " + payload.timer)
             ldrTime = new Date(0);
             ldrTime.setUTCSeconds(payload.timer);
