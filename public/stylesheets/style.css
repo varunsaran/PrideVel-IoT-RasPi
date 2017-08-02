@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header p {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
