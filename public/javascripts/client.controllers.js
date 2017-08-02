@@ -124,11 +124,14 @@ window.onload = function () {
 		var dps = []; // dataPoints
 		var chartLDR = new CanvasJS.Chart("chartContainerLDR",{
 			title :{
-				text: "Live LDR Data"
+				text: "Live Light Sensor Data"
 			},
 			axisY:{
-				title: "Sensor Status "
+				title: "Amount of Light"
 				},
+        axisX:{
+  				title: "Time"
+  				},
 
 			data: [{
 				type: "line",
@@ -185,11 +188,15 @@ window.onload = function () {
 
   		var chartTemp = new CanvasJS.Chart("chartContainerTemp",{
   			title :{
-  				text: "Live Temp Data"
+  				text: "Live Temperature Data"
   			},
   			axisY:{
-  				title: "Sensor Status "
+  				title: "Temperature in °C "
   				},
+          
+          axisX:{
+    				title: "Time"
+    				},
 
   			data: [{
   				type: "line",
