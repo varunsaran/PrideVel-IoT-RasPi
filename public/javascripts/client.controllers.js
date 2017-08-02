@@ -35,8 +35,9 @@ function ($scope, $rootScope, $http, $interval) {
           }else {
             $('#switch').prop('checked', false);
           }
-
-            document.getElementById('spanLDR').innerHTML= (1-(parseFloat(Math.round(payload.value*100)/100).toFixed(2) /3.3))*100;
+            var light = parseFloat(Math.round(payload.value*100)/100).toFixed(2);
+            console.log(light);
+            document.getElementById('spanLDR').innerHTML= (1-(light/3.3))*100;
             //console.log("payload.timer: " + payload.timer)
             ldrTime = new Date(0);
             ldrTime.setUTCSeconds(payload.timer);
