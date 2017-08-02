@@ -127,7 +127,7 @@ window.onload = function () {
 				text: "Live Light Sensor Data"
 			},
 			axisY:{
-				title: "Amount of Light"
+				title: "Darkness (0-3.3)"
 				},
         axisX:{
   				title: "Time"
