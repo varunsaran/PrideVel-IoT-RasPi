@@ -6,12 +6,11 @@
 
    <!-- <script src="/scripts/jquery/dist/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
     <!--removed angular.min.js from previous script src-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
    <!-- <script type="text/javascript" src="public/javascripts/client.controllers.js"></script>-->
 
         <!--  Scripts-->
@@ -25,20 +24,21 @@
 
 
 
-<script type = 'text/javascript' src='javascripts/client.controllers.js'></script>
+    <script type = 'text/javascript' src='javascripts/client.controllers.js'></script>
 
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
    <!-- <link href="/scripts/materialize-css/dist/mater/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
    <title>Raspberry Pi Sensors</title>
-<div class="header">
-  <img src="images/pridevel_logo.png"/>
-  <h1 style = "color:black; float:right"> <font size = "20"> Supply Chain Theft and Spoilage Real-Time Monitoring </font></h1>
-</div>
-    </head>
+   <div class="header">
+     <img src="images/pridevel_logo.png"/>
+     <h1 style = "color:black; float:right"> <font size = "20"> Supply Chain Theft and Spoilage Real-Time Monitoring </font></h1>
+   </div>
+
+  </head>
   <body>
 
 <section>
@@ -47,7 +47,6 @@
      <label>
          Light
      <input id="switch" type="checkbox">
-     <!--<input id="switch" type="text">-->
      <span class="lever"></span>
          Dark
      </label>
@@ -56,19 +55,12 @@
 </section>
 
 
-<head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
-
-</head>
-<body>
 	<div id="chartContainerLDR" style="height: 300px; width:100%;">
 	</div>
-</body>
 
-<body>
 	<div id="chartContainerTemp" style="height: 300px; width:100%;">
 	</div>
-</body>
+
 
     <td>
     <p>
