@@ -6,7 +6,7 @@
 /*globals angular */
 /*eslint-env jquery */
 var core = angular.module('core', ['ngRoute', 'HomeControllers']);
-console.log("client.controllers.js Starting now ... ");
+//console.log("client.controllers.js Starting now ... ");
 var payload = {};
 var payloadTemp = {};
 var tempTime;
@@ -37,11 +37,11 @@ function ($scope, $rootScope, $http, $interval) {
           }
 
             document.getElementById('spanLDR').innerHTML= payload.value;
-            console.log("payload.timer: " + payload.timer)
+            //console.log("payload.timer: " + payload.timer)
             ldrTime = new Date(0);
             ldrTime.setUTCSeconds(payload.timer);
 
-            console.log("date: " + ldrTime );
+            //console.log("date: " + ldrTime );
 
         }
       }
@@ -153,7 +153,7 @@ window.onload = function () {
 
 
 				if('value' in payload){
-          console.log("value exists in latest ldr payload and value = " + payload.value + " and timer = " + ldrTime);
+          //console.log("value exists in latest ldr payload and value = " + payload.value + " and timer = " + ldrTime);
 					dps.push({
 						x: ldrTime,
 						y: parseFloat(payload.value)
@@ -193,7 +193,7 @@ window.onload = function () {
   			axisY:{
   				title: "Temperature in °C "
   				},
-          
+
           axisX:{
     				title: "Time"
     				},
