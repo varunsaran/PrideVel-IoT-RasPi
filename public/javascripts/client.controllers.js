@@ -30,12 +30,12 @@ function ($scope, $rootScope, $http, $interval) {
         // switch on when motion is detected
         if(Object.keys(response.data.data).length > 0){
           payload = response.data.data;
-          if(payload.value > 1){
+          if(payload.value > 500000){
             $('#switch').prop('checked', true);
           }else {
             $('#switch').prop('checked', false);
           }
-            var light = (1-(payload.value/3.3))*100;
+            var light = (1-(payload.value/500000))*100;
             console.log(light);
             document.getElementById('spanLDR').innerHTML= parseFloat(Math.round(light*100)/100).toFixed(2);
             //console.log("payload.timer: " + payload.timer)
@@ -128,7 +128,7 @@ window.onload = function () {
 				text: "Live Light Sensor Data"
 			},
 			axisY:{
-				title: "Darkness (0-3.3)"
+				title: "Darkness (0-500k)"
 				},
         axisX:{
   				title: "Time"
