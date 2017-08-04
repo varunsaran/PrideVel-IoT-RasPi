@@ -7,14 +7,16 @@ var options = {
 
 var pgp = require('pg-promise')(options);
 var connectionString = process.env.DATABASE_URL;
-//next line has connection string with format user:password@host:port....something like that
-//var connectionString = 'postgres://xieghwzbgmzuzt:78e76406f7c32181c720c82dff7062bedd917fe4a648ff6a488fe425a3830cc2@ec2-54-163-254-143.compute-1.amazonaws.com:5432/d3d5fkqr7qabkg'
 
+// connectionString = 'postgres://xieghwzbgmzuzt:78e76406f7c32181c720c82dff7062bedd917fe4a648ff6a488fe425a3830cc2@ec2-54-163-254-143.compute-1.amazonaws.com:5432/d3d5fkqr7qabkg'
+// stored in env file
 
 
 var db = pgp(connectionString);
 
 // add query functions
+
+//gets all values from table
 function getAllSensors(req, res, next) {
   db.any('select * from sensors')
     .then(function (data) {
@@ -29,12 +31,11 @@ function getAllSensors(req, res, next) {
       return next(err);
     });
 }
-//change " where id = $1" to "where type = $(something?)"
+
+// gets all values of 1 type of sensor from table
 function getSingleSensor(req, res, next) {
-  var sensorID = parseInt(req.params.id);
+
   var sensorType = req.params.type;
-  //added previous line. commented next line, ID changed to type.
-  //db.one('select * from sensors where id = $1', sensorID)
   db.any('select * from sensors where type = $1', sensorType)
     .then(function(data) {
       res.status(200)
@@ -49,12 +50,11 @@ function getSingleSensor(req, res, next) {
       return next(err);
     });
 };
+
+//adds a row with new values from RasPi (post request)
 function createSensor(req, res, next){
   req.body.age = parseInt(req.body.age);
 
-  //db.none('insert into sensors(type, timer, value)' +
-  //db.none changed to db.one to see if new ID won't be created.
-  //changed back to original
   db.none('insert into sensors(type, timer, value)' +
       'values(${type}, ${timer}, ${value})',
     req.body)
@@ -69,11 +69,13 @@ function createSensor(req, res, next){
           return next (err);
         });
 };
+
+//updates a value (PUT request) Not used anywhere
 function updateSensor(req, res, next) {
-  //db.none('update sensors set type=$1, timer=$2, value=$3 where id=$4',
+
   db.any('update sensors set timer=$2, value=$3 where type=$1',
-    [req.body.type, (req.body.timer), (req.body.value),  /*parseInt(req.params.id)*/])
-      //removed parseInt from parseInt(req.body.timer) because timer, value are string not Int.
+    [req.body.type, (req.body.timer), (req.body.value)  ])
+
 
     .then(function () {
       res.status(200)
@@ -86,23 +88,9 @@ function updateSensor(req, res, next) {
       return next(err);
     });
 };
-function removeSensor(req, res, next) {
-  var sensorID = parseInt(req.params.id);
-  db.result('delete from sensors where id = $1', sensorID)
-    .then(function (result) {
-      /* jshint ignore:start */
-      res.status(200)
-        .json({
-          status: 'success',
-          message: `Removed ${result.rowCount} sensor`
-        });
-      /* jshint ignore:end */
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-};
 
+
+//gets latest values of a sensor type 
 function getLatestSensor(req, res, next) {
   var sensorType = req.params.type;
   db.one('SELECT type, timer, value FROM sensors where type = $1 ORDER BY timer DESC LIMIT 1'  , sensorType)
@@ -124,6 +112,5 @@ module.exports = {
   getSingleSensor: getSingleSensor,
   createSensor: createSensor,
   updateSensor: updateSensor,
-  removeSensor: removeSensor,
   getLatestSensor: getLatestSensor
 };

@@ -18,8 +18,9 @@ homeControllers.controller('HomeController', ['$scope', '$rootScope', '$http', '
 function ($scope, $rootScope, $http, $interval) {
 
    // Set of all tasks that should be performed periodically
+   //gets latest LDR sensor values, pushes the to html webpage and activates/deactivates switch.
   var runIntervalTasks = function() {
-
+    //gets JSON object with sensor type, timer, value that was pushed by RasPi
     $http({
       method: 'GET',
       url: '/api/sensors/latest/ldr'
@@ -27,21 +28,24 @@ function ($scope, $rootScope, $http, $interval) {
 
 
       if (response.data.data !== undefined) {
-        // switch on when motion is detected
         if(Object.keys(response.data.data).length > 0){
+          //response.data.data is the JSON object with type, timer, value
           payload = response.data.data;
-          if(payload.value > 500000){
+          //if capacitor value is more that 400,000 turn on the switch
+          if(payload.value > 400000){
             $('#switch').prop('checked', true);
           }else {
             $('#switch').prop('checked', false);
           }
+          //converts capacitor value from number between 1-500000 into a percentage.
             var light = (1-(payload.value/500000))*100;
-            console.log(light);
+            //console.log(light);
+            //pushes latest LDR value into html webpage and rounds to 2 decimal places
             document.getElementById('spanLDR').innerHTML= parseFloat(Math.round(light*100)/100).toFixed(2);
             //console.log("payload.timer: " + payload.timer)
+            // var ldrTime initialised to be epoch time, then converts payload.timer (milliseconds from epoch) into local time.
             ldrTime = new Date(0);
             ldrTime.setUTCSeconds(payload.timer);
-
             //console.log("date: " + ldrTime );
 
         }
@@ -49,24 +53,19 @@ function ($scope, $rootScope, $http, $interval) {
     },   function errorCallback(response) {
           console.log("failed to listen to sensor data");
       });
+      //same function for LDR repeated for temp sensor.
       $http({
         method: 'GET',
         url: '/api/sensors/latest/temp'
       }).then(function successCallback(response) {
 
-
         if (response.data.data !== undefined) {
-          // switch on when motion is detected
+
           if(Object.keys(response.data.data).length > 0){
             payloadTemp = response.data.data;
-            //  $('#switch').prop('checked', payload.value);
               document.getElementById('spanTemp').innerHTML= payloadTemp.value;
-              //console.log("payload.timer: " + payloadTemp.timer)
               tempTime = new Date(0);
               tempTime.setUTCSeconds(payloadTemp.timer);
-
-
-
 
           }
         }
@@ -76,6 +75,7 @@ function ($scope, $rootScope, $http, $interval) {
     });
   };
 
+//lines 78-111 taken from IBM tutorial to call runIntervalTasks periodically and refresh and update values
   var polling;
   var startPolling = function(pollingInterval) {
     polling = $interval(function() {
@@ -90,12 +90,10 @@ function ($scope, $rootScope, $http, $interval) {
     }
   };
 
-
-  // Someone asked us to refresh
+  // refresh
   $rootScope.$on('refreshSensorData', function(){
-    // Check for new input events twice per second
+    // Check for new input events once per second
     var pollingInterval = 1000;
-    //changed from 500 to 2000
 
     // Prevent race conditions - stop any current polling, then issue a new
     // refresh task immediately, and then start polling.  Note that polling
@@ -113,13 +111,7 @@ function ($scope, $rootScope, $http, $interval) {
 }
 ]);
 
-
-
-
-
-
-
-
+//creates LDR graph using canvasJS on page being loaded
 window.onload = function () {
 
 		var dps = []; // dataPoints
@@ -150,11 +142,9 @@ window.onload = function () {
 			// count is number of times loop runs to generate random dataPoints.
 
 			for (var j = 0; j < count; j++) {
-				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
-
 
 				if('value' in payload){
-          //console.log("value exists in latest ldr payload and value = " + payload.value + " and timer = " + ldrTime);
+          //console.log("value in latest ldr payload  = " + payload.value + " and timer = " + ldrTime);
 					dps.push({
 						x: ldrTime,
 						y: parseFloat(payload.value)
