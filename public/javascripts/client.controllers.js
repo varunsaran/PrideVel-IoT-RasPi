@@ -63,7 +63,8 @@ function ($scope, $rootScope, $http, $interval) {
 
           if(Object.keys(response.data.data).length > 0){
             payloadTemp = response.data.data;
-              document.getElementById('spanTemp').innerHTML= payloadTemp.value;
+              document.getElementById('spanTemp').innerHTML= parseFloat(Math.round(payloadTemp.value*100)/100).toFixed(2)
+
               tempTime = new Date(0);
               tempTime.setUTCSeconds(payloadTemp.timer);
 
