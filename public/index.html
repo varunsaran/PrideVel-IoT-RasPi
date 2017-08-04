@@ -4,43 +4,24 @@
 
     <head>
 
-   <!-- <script src="/scripts/jquery/dist/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <!--removed angular.min.js from previous script src-->
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
-   <!-- <script type="text/javascript" src="public/javascripts/client.controllers.js"></script>-->
-
-        <!--  Scripts-->
-
-    <!--  <script src="/scripts/angular/angular.min.js"></script>
-    <script src="/scripts/angular-route/angular-route.min.js"></script>-->
-
-    <!-- <script src="/scripts/materialize-css/dist/js/materialize.min.js"></script>
-    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-
-
-
     <script type = 'text/javascript' src='javascripts/client.controllers.js'></script>
-
-
-    <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-   <!-- <link href="/scripts/materialize-css/dist/mater/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
     <link rel="stylesheet" href='stylesheets/style.css'>
+
    <title>Raspberry Pi Sensors</title>
    <div class="header">
    <img src="images/pridevel_logo.png"/>
    <h1 style = "color:black; font-size:24px"> <br/>  Supply Chain Theft and Spoilage Real-Time Monitoring </h1>
 
    </div>
-
-  </head>
+   </head>
 
   <body>
 <br/>
@@ -49,15 +30,16 @@
 <br/>
 <br/>
 
+<!--Chart containers made for both LDR and Temp, controlled by client.controllers.js  -->
 	<div id="chartContainerLDR" style="height: 300px; width:100%;">
 	</div>
 
 	<div id="chartContainerTemp" style="height: 300px; width:100%;">
 	</div>
 
-
     <td>
     <p>
+      <!--Temperature and Light values to be updated by client.controllers.js, displayed on homepage -->
     Temperature value: <span id="spanTemp"></span> degrees C
 
     </p>
@@ -68,7 +50,7 @@
 
   </p>
 </td>
-
+<!--switch to be controlled by client.controllers.js -->
 <section>
 <div ng-controller="HomeController" >
  <div class="switch">

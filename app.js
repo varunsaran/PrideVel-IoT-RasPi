@@ -4,14 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var request = require('request');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
-
 var app = express();
 var value ;
+
+//default node.js web app stuff
+//Main app code can be found in queries.js, routes/index.js, public/javascripts/client.controllers.js
+//UI code in public/index.html
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

@@ -139,13 +139,14 @@ window.onload = function () {
 
 		var updateChart = function (count) {
 			count = count || 1;
-			// count is number of times loop runs to generate random dataPoints.
+			// count is number of times loop runs to generate dataPoints.
 
 			for (var j = 0; j < count; j++) {
 
 				if('value' in payload){
           //console.log("value in latest ldr payload  = " + payload.value + " and timer = " + ldrTime);
 					dps.push({
+            //time and value pushed to x and y axis
 						x: ldrTime,
 						y: parseFloat(payload.value)
 				});
@@ -170,10 +171,8 @@ window.onload = function () {
 
 	};
 
+//same function for LDR repeated for Temp, with variable names being the same with Temp added to the end.
   window.addEventListener("load", function(evt) {
-
-
-  //window.onload = function () {
 
   		var dpsTemp = []; // dataPoints
 
@@ -205,8 +204,6 @@ window.onload = function () {
   			// count is number of times loop runs to generate random dataPoints.
 
   			for (var j = 0; j < count; j++) {
-  				//yVal = yVal +  Math.round(5 + Math.random() *(-10));
-
 
   				if(tempTime !== undefined){
   					dpsTemp.push({
